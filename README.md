@@ -1,5 +1,7 @@
 # Stake App 📈
 
+**[🚀 Try it online in StackBlitz](https://stackblitz.com/github/daiyis/stake-app)**
+
 A modern mobile-first investment and trading application built with Ionic Angular. This app provides users with the ability to discover, invest in, and track stocks and other financial instruments.
 
 ## 🚀 Features
