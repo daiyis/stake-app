@@ -124,7 +124,6 @@ npm test              # Run tests once
 
 ### StackBlitz Hosting
 
-StackBlitz provides an excellent cloud development environment for Ionic Angular projects. Here's how to deploy your stake app with both servers running:
 
 ## 🔮 Future Improvements
 
