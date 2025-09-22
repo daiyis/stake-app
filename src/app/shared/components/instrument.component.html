@@ -1,0 +1,29 @@
+
+<div
+  class="instrument-container instrument-holding"
+  [ngClass]="[size, clickable ? 'clickable' : '']"
+  (click)="onInstrumentClick()">
+  <div class="holding-content">
+    <div class="holding-main">
+      <!-- Left / core info -->
+      <div class="stock-info">
+        <h4 class="stock-symbol">{{ displayStock.symbol }}</h4>
+        <ng-container *ngIf="holding; else nameBlock">
+          <p class="shares-count">{{ shares | number:'1.4-4' }} shares</p>
+        </ng-container>
+        <ng-template #nameBlock>
+          <p class="instrument-name">{{ displayStock.name }}</p>
+        </ng-template>
+      </div>
+
+      <!-- Right side (price + change) -->
+      <div class="stock-pricing" *ngIf="mode === 'holding' || mode === 'list'">
+        <span class="current-price">${{ displayStock.price | number:'1.2-2' }}</span>
+        <!-- Number change area -->
+        <span *ngIf="mode === 'holding'" class="change-percent" >
+          {{ displayStock.changePercent }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

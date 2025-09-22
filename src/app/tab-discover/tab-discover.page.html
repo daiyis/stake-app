@@ -1,0 +1,90 @@
+<ion-content [fullscreen]="true">
+  <div class="discover-container">
+
+    <div class="search-section">
+      <ion-searchbar
+        class="custom-searchbar"
+        [(ngModel)]="searchQuery"
+        (ionInput)="onSearchInput($event)"
+        (ionFocus)="onSearchFocus()"
+        (ionBlur)="onSearchBlur()"
+        placeholder="Search"
+        showCancelButton="focus"
+        (ionCancel)="onCancelSearch()">
+      </ion-searchbar>
+    </div>
+
+    <div class="search-results-section" *ngIf="showSearchResults">
+      <div class="search-results-content">
+        <ion-list *ngIf="!(isSearching$ | async) && ((searchResults$ | async) || []).length > 0">
+          <li *ngFor="let result of (searchResults$ | async); trackBy: trackByStockSymbol" class="search-result-item">
+            <app-instrument 
+              [stock]="result.stock"
+              mode="list"
+              [size]="'medium'"
+              (instrumentClick)="onStockClick($event)">
+            </app-instrument>
+          </li>
+        </ion-list>
+        
+        <div class="search-loading" *ngIf="isSearching$ | async">
+          <ion-spinner></ion-spinner>
+          <p>Searching...</p>
+        </div>
+        
+        <div class="no-results" *ngIf="!(isSearching$ | async) && ((searchResults$ | async) || []).length === 0 && searchQuery.length > 0">
+          <p>No results for "{{ searchQuery }}"</p>
+        </div>
+
+        <div class="empty-state" *ngIf="!(isSearching$ | async) && searchQuery.length === 0">
+          <p>Start typing to search for stocks</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="discover-content" *ngIf="!showSearchResults">
+
+      <div class="section">
+        <div class="section-header">
+          <h3>Recently searched</h3>
+        </div>
+        
+        <div class="recently-searched-list">
+          <div class="stock-item" *ngFor="let recent of (recentlySearched$ | async); trackBy: trackByStockSymbol">
+            <app-instrument 
+              [stock]="recent.stock"
+              mode="list"
+              [size]="'medium'"
+              (instrumentClick)="onRecentSearchClick($event)">
+            </app-instrument>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <h3>Top 3 volume stock</h3>
+        </div>
+        
+        <div class="top-volume-list">
+          <div class="volume-item" *ngFor="let stock of (topVolumeStocks$ | async)?.slice(0, 3); let i = index">
+            <app-stock-card 
+              [stock]="stock" 
+              [showBuyButton]="true"
+              [size]="'large'"
+              (cardClicked)="onStockCardClick($event)">
+            </app-stock-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<app-buy-order
+  *ngIf="selectedStock"
+  [stock]="selectedStock"
+  [isOpen]="isBuyOrderModalOpen"
+  (closeModal)="onBuyOrderClose()"
+  (orderPlaced)="onOrderPlaced($event)">
+</app-buy-order>

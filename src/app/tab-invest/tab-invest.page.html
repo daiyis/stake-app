@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="content-container">
+    <div class="page-header">
+      <h3 class="page-title">Dashboard</h3>
+    </div>
+
+    <div class="portfolio-summary" *ngIf="portfolio$ | async as portfolio">
+      <div class="summary-content">
+        <h2>Total equity</h2>
+        <h1 class="total-amount">${{ portfolio.totalEquity | number:'1.2-2' }}</h1>
+      </div>
+    </div>
+
+    <div class="section" *ngIf="portfolio$ | async as portfolio">
+      <div class="section-header holdings-header">
+        <h3>Holdings</h3>
+      </div>
+      
+      <div class="holdings-header">
+        <span class="header-stock">Stock</span>
+        <span class="header-price">Price</span>
+        <span class="header-change">Change</span>
+      </div>
+      
+      <div class="holdings-list">
+        <div class="holding-item" *ngFor="let holding of portfolio.holdings">
+          <app-instrument 
+            [holding]="holding"
+            [stock]="holding.stock"
+            mode="holding"
+            [size]="'medium'"
+            (instrumentClick)="onStockClick($event)">
+          </app-instrument>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h3>Trending stocks</h3>
+      </div>
+      
+      <div class="trending-list horizontal" *ngIf="!(isLoading$ | async)">
+        <div class="trending-item" *ngFor="let stock of (trendingStocks$ | async)">
+          <app-stock-card 
+            [stock]="stock" 
+            [showBuyButton]="false"
+            [size]="'small'"
+            (cardClicked)="onStockCardClick($event)">
+          </app-stock-card>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>
+
+<app-buy-order
+  *ngIf="selectedStock"
+  [stock]="selectedStock"
+  [isOpen]="isBuyOrderModalOpen"
+  (closeModal)="onBuyOrderClose()"
+  (orderPlaced)="onOrderPlaced($event)">
+</app-buy-order>

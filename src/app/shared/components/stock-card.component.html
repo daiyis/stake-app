@@ -1,0 +1,51 @@
+
+
+<ion-card class="stock-card" [ngClass]="size" (click)="onCardClick()">
+  <!-- TOP ROW: logo left, tag right -->
+  <div class="top-row">
+    <div class="logo">
+      <img *ngIf="stock.logo" [src]="stock.logo" [alt]="stock.symbol + ' logo'"/>
+    </div>
+
+    <div class="tag" >
+      <app-instrument-type [type]="instrumentType"></app-instrument-type>
+    </div>
+  </div>
+
+  <!-- MAIN GRID: title + price. Layout controlled by CSS for each mode -->
+  <div class="content-grid">
+    <!-- Title block (symbol + company) shared -->
+    <ng-container *ngTemplateOutlet="titleBlock"></ng-container>
+
+    <!-- Price block -->
+    <div class="price" role="figure" aria-label="Current price">
+      <div class="price-value">${{ stock.price | number:'1.2-2' }}</div>
+    </div>
+  </div>
+
+  <div class="stats-row" *ngIf="size === 'large'">
+    <div class="stat-item" *ngIf="stock.marketCap">
+      <ion-icon aria-hidden="true" src="assets/circle-dollar.svg"></ion-icon>
+      <div class="stat-text">${{ (stock.marketCap / 1000000) | number:'1.0-1' }}m</div>
+    </div>
+
+    <div class="stat-item" *ngIf="stock.volume">
+      <ion-icon aria-hidden="true" src="assets/target.svg"></ion-icon>
+      <div class="stat-text">${{ (stock.volume / 1000000000) | number:'1.0-1' }}B</div>
+    </div>
+
+    <div class="stat-item" *ngIf="stock.dayRange">
+      <ion-icon aria-hidden="true" src="assets/square-dollar.svg"></ion-icon>
+      <div class="stat-text">${{ stock.dayRange.low | number:'1.0-0' }}-${{ stock.dayRange.high | number:'1.0-0' }}</div>
+    </div>
+  </div>
+
+  <!-- SHARED TEMPLATE: title block -->
+  <ng-template #titleBlock>
+    <div class="title-block">
+      <div class="symbol">{{ stock.symbol }}</div>
+      <span class="dot" *ngIf="size !== 'small'">•</span>
+      <div class="company">{{ stock.name }}</div>
+    </div>
+  </ng-template>
+</ion-card>

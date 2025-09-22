@@ -1,0 +1,26 @@
+.instrument-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid;
+  padding: 4px 6px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 130%;
+  letter-spacing: 0.25px;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  min-width: fit-content;
+  
+  &--stock {
+    border-color: rgba(20, 20, 20, 1);
+    color: rgba(20, 20, 20, 1);
+  }
+  
+  &--etf {
+    border-color: rgba(65, 72, 251, 1);
+    color: rgba(65, 72, 251, 1);
+  }
+}

@@ -1,0 +1,75 @@
+
+.instrument-container.instrument-holding {
+
+  
+  &.clickable:hover {
+    background: var(--ion-color-step-100, #f0f0f0);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .holding-content {
+    padding: 10px 0px;
+    .holding-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .stock-info {
+        flex: 1;
+        
+        .stock-symbol {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 130%;
+          margin: 0 0 2px 0;
+          color: rgba(20, 20, 20, 1);
+
+        }
+        
+        .shares-count, .instrument-name {
+          font-size: 12px;
+          color: var(--ion-color-medium);
+          margin: 0;
+        }
+      }
+      
+      .stock-pricing {
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        
+        .current-price {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 130%;
+          color: var(--ion-color-dark);
+        }
+
+        .change-percent {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+padding: 0px 9px;
+gap: 4px;
+
+width: 80px;
+min-width: 80px;
+max-width: 80px;
+height: 26px;
+
+background: #22B692;
+border: 1px solid #22B692;
+border-radius: 4px;
+color: #ffffff;
+font-size: 13px;
+
+        }
+        
+      }
+    }
+  }
+}

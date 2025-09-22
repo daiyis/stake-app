@@ -1,0 +1,149 @@
+.buy-order-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  &.open { opacity: 1; visibility: visible; }
+}
+
+.buy-order-modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 70vh;
+  background: var(--ion-color-light);
+  border-radius: 20px 20px 0 0;
+  transform: translateY(100%);
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px 16px 16px 16px;
+}
+
+.modal-header {
+
+  margin-bottom: 24px;
+
+  .drag-indicator {
+    width: 40px;
+    height: 4px;
+    background: var(--ion-color-medium);
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .stock-header {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      h2, .header-price {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--ion-color-dark);
+      }
+      h2 { font-weight: 700; margin-right: 8px; }
+    }
+  }
+}
+
+.input-section {
+
+  border: 1px solid rgba(227, 227, 227, 1);
+  margin-bottom: 8px;
+  border-radius: 12px;
+  padding: 0px 16px;
+
+  ion-item {
+    --background: var(--ion-color-light-tint);
+    --border-radius: 12px;
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+
+  ion-label {
+
+    color: rgba(20, 20, 20, 1);
+;
+    margin: 2px;
+    font-size: 12px;
+  }
+}
+
+.buy-button-container {
+
+  .swipe-track {
+    position: relative;
+    height: 56px;
+    background: rgba(20, 20, 20, 1);
+    border-radius: 28px;
+    border: none;
+    min-width: 280px;
+    overflow: hidden;
+
+    .swipe-background {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 20, 20, 1);
+
+      .swipe-text {
+        color: white;
+        font-weight: 600;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+    }
+
+    .buy-button-slider {
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 48px;
+      height: 48px;
+      background: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+
+      &:active { cursor: grabbing; transition: none; }
+      ion-icon { 
+        pointer-events: none;
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 52px; // Width of the slider
+      background: rgba(20, 20, 20, 1);
+      border-radius: 28px;
+      z-index: 1;
+      transition: transform 0.2s ease;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "stocks": [
+    {
+      "id": "AAPL",
+      "symbol": "AAPL",
+      "fullName": "Apple Inc.",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/1f34e.png?v8",
+      "volume": 8777809000,
+      "marketCap": 262798555876,
+      "open": 1132.57,
+      "close": 1126.33,
+      "ask": 1128.0,
+      "high": 1139.29,
+      "low": 1072.85
+    },
+    {
+      "id": "MSFT",
+      "symbol": "MSFT",
+      "fullName": "Microsoft Corporation",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png?v8",
+      "volume": 6575998,
+      "marketCap": 278457062908,
+      "open": 841.42,
+      "close": 843.51,
+      "ask": 843.66,
+      "high": 872.01,
+      "low": 839.23
+    },
+    {
+      "id": "GOOGL",
+      "symbol": "GOOGL",
+      "fullName": "Alphabet Inc.",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png?v8",
+      "volume": 4567800000,
+      "marketCap": 180000000000,
+      "open": 1258.39,
+      "close": 1241.4,
+      "ask": 1243.68,
+      "high": 1317.76,
+      "low": 1184.48
+    },
+    {
+      "id": "TSLA",
+      "symbol": "TSLA",
+      "fullName": "Tesla Inc.",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/26a1.png?v8",
+      "volume": 2345600000,
+      "marketCap": 330000000000,
+      "open": 1263.61,
+      "close": 1264.27,
+      "ask": 1267.01,
+      "high": 1273.39,
+      "low": 1134.51
+    },
+    {
+      "id": "META",
+      "symbol": "META",
+      "fullName": "Meta Platforms Inc.",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png?v8",
+      "volume": 12345000,
+      "marketCap": 180000000000,
+      "open": 323.68,
+      "close": 323.99,
+      "ask": 324.24,
+      "high": 328.61,
+      "low": 320.51
+    },
+    {
+      "id": "NVDA",
+      "symbol": "NVDA",
+      "fullName": "NVIDIA Corporation",
+      "type": "stock",
+      "logo": "https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png?v8",
+      "volume": 8765000,
+      "marketCap": 45000000000,
+      "open": 810.67,
+      "close": 818.9,
+      "ask": 821.27,
+      "high": 824.89,
+      "low": 799.61
+    }
+  ],
+  "portfolio": {
+    "id": "main",
+    "accountId": "user-123",
+    "totalValue": 8036.50,
+    "positions": [
+      {
+        "symbol": "AAPL",
+        "quantity": 3.0252,
+        "currentPrice": 1128.0,
+        "marketValue": 3411.62,
+        "changePercent": 2.5
+      },
+      {
+        "symbol": "TSLA", 
+        "quantity": 2.1500,
+        "currentPrice": 1267.01,
+        "marketValue": 2724.07,
+        "changePercent": 1.8
+      },
+      {
+        "symbol": "NVDA",
+        "quantity": 2.8000,
+        "currentPrice": 821.27,
+        "marketValue": 2299.56,
+        "changePercent": -0.5
+      }
+    ]
+  },
+  "trending": [
+    {"id": 1, "symbol": "NVDA"},
+    {"id": 2, "symbol": "AAPL"},
+    {"id": 3, "symbol": "TSLA"},
+    {"id": 4, "symbol": "META"},
+    {"id": 5, "symbol": "GOOGL"},
+    {"id": 6, "symbol": "MSFT"}
+  ],
+  "searches": []
+}

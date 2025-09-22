@@ -26,12 +26,176 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 /**
- * Ionic Dark Mode
+ * Custom App Styling
  * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+
+// Enhanced tab bar styling
+ion-tab-bar {
+  background: white;
+  border-top: 1px solid var(--ion-color-light);
+  
+  ion-tab-button {
+    --color: var(--ion-color-medium);
+    --color-selected: var(--ion-color-primary);
+    
+    ion-icon {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    ion-label {
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+  }
+}
+
+// Enhanced searchbar styling
+ion-searchbar {
+  --background: var(--ion-color-light-tint);
+  --border-radius: 32px;
+  --box-shadow: none;
+  --icon-color: var(--ion-color-medium);
+  --placeholder-color: var(--ion-color-medium);
+  
+  .searchbar-input {
+    font-size: 16px;
+  }
+}
+
+// Custom searchbar styling (proper way according to Ionic docs)
+.custom-searchbar {
+  --background: var(--ion-color-light-tint);
+  --border-radius: 32px;
+  --box-shadow: none;
+  --icon-color: var(--ion-color-medium);
+  --placeholder-color: var(--ion-color-medium);
+  --cancel-button-color: rgba(20, 20, 20, 1);
+}
+
+// Enhanced toolbar styling
+ion-toolbar {
+  --background: white;
+  --border-style: none;
+  --color: var(--ion-color-dark);
+  
+  ion-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+// Enhanced content styling
+ion-content {
+
+  --background: #ffffff;
+}
+
+// Enhanced card styling
+ion-card {
+  --background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  margin: 8px 0;
+}
+
+// Enhanced button styling
+ion-button {
+  --border-radius: 12px;
+  font-weight: 600;
+  text-transform: none;
+  
+  &.buy-button {
+    --background: var(--ion-color-primary);
+    --color: white;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+// Enhanced input styling
+ion-item {
+  --background: transparent;
+  --border-style: none;
+  --highlight-color-focused: var(--ion-color-primary);
+  
+  ion-input,
+  ion-searchbar {
+    --background: var(--ion-color-light-tint);
+    --border-radius: 32px;
+  }
+}
+
+// Typography improvements
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+// Smooth transitions
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+// Toast styling
+.success-toast {
+  --background: rgba(241, 251, 249, 1);
+  --border-color: rgba(19, 212, 166, 0.1);
+  --border-width: 1px;
+  // --color: white;
+  --border-radius: 6px;
+  
+  .toast-container {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .toast-message {
+    text-align: center;
+  }
+}
+
+// Target the toast shadow parts for centering
+.success-toast::part(container) {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-toast::part(message) {
+  text-align: center;
+  font-size: 12px;
+}
+
+.error-toast {
+  --background: var(--ion-color-danger);
+  --color: white;
+  
+  .toast-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .toast-container {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .toast-message {
+    text-align: center;
+  }
+  
+  ion-icon {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+}

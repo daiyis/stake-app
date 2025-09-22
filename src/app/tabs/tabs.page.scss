@@ -1,1 +1,17 @@
+/* Make the bottom tab bar background white */
+ion-tab-bar {
+	/* Ionic uses CSS variables; overriding --background is the clean way */
+	--background: #ffffff;
+	/* Optional: tweak border & icon/text colors if needed */
+}
+
+/* Style the individual tab buttons */
+ion-tab-button {
+	--color: #959595; /* default (unselected) icon/label color */
+	--color-selected: #141414; /* selected tab color - change this to your desired color */
+	
+	/* Font styling for the tab labels */
+	font-weight: 700; /* Options: normal(400), 500, 600, bold(700), etc. */
+}
+
 

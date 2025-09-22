@@ -1,0 +1,182 @@
+.discover-container {
+  min-height: 100vh;
+  padding: 16px 24px 16px 24px;
+}
+
+.search-section {
+  position: relative;
+  background: white;
+  z-index: 10;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-results-content {
+  padding: 16px;
+  ion-list {
+    background: transparent;
+    padding: 0;
+  }
+  
+  ion-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 60px;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.search-result-item {
+  
+  .stock-info {
+    flex: 1;
+    
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ion-color-dark);
+    }
+    
+    p {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+      margin: 2px 0 0 0;
+    }
+  }
+  
+  .stock-price {
+    text-align: right;
+    
+    .price {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ion-color-dark);
+    }
+    
+    .change {
+      font-size: 12px;
+      color: var(--ion-color-danger);
+      
+      &.positive {
+        color: var(--ion-color-success);
+      }
+    }
+  }
+}
+
+.search-loading,
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  
+  p {
+    margin: 8px 0 0 0;
+    color: var(--ion-color-medium);
+    font-size: 14px;
+  }
+}
+
+.discover-content {
+  padding: 16px;
+  transition: opacity 0.2s ease;
+  
+  &.hidden {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  margin-bottom: 16px;
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ion-color-dark);
+    margin: 0;
+  }
+}
+
+.recently-searched-list {
+  overflow: hidden;
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background: var(--ion-color-light-tint);
+  }
+  
+  .stock-details {
+    flex: 1;
+    
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ion-color-dark);
+    }
+    
+    p {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+      margin: 2px 0 0 0;
+    }
+  }
+  
+  .stock-price {
+    .price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ion-color-dark);
+    }
+  }
+}
+
+.top-volume-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.volume-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  app-stock-card {
+    --background: transparent;
+    margin: 0;
+  }
+}
