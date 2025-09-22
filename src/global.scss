@@ -144,8 +144,9 @@ h1, h2, h3, h4, h5, h6 {
   --background: rgba(241, 251, 249, 1);
   --border-color: rgba(19, 212, 166, 0.1);
   --border-width: 1px;
-  // --color: white;
   --border-radius: 6px;
+  --color: #000000;
+
   
   .toast-container {
     padding: 16px;
@@ -173,29 +174,3 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 
-.error-toast {
-  --background: var(--ion-color-danger);
-  --color: white;
-  
-  .toast-wrapper {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .toast-container {
-    padding: 16px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .toast-message {
-    text-align: center;
-  }
-  
-  ion-icon {
-    margin-right: 8px;
-    font-size: 20px;
-  }
-}
