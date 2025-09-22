@@ -124,6 +124,7 @@ npm test              # Run tests once
 
 ### StackBlitz Hosting
 
+Try the app online: **[Open in StackBlitz](https://stackblitz.com/github/daiyis/stake-app)**
 
 ## 🔮 Future Improvements
 
